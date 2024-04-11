@@ -1,0 +1,306 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html{
+    width: 100%;
+    height: 100%;
+    display: block;
+   text-align: center;
+    
+}
+body{
+    position: relative;
+    width: 1244px;
+    height: 695px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+h1{
+    font-size: 70px;
+    background-image: linear-gradient(to right, #ffcc00, #ff0000);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+ 
+   }
+#container{
+  
+    width: 1244px;
+    height: 695px;
+   
+    background-image: url(/img/pikachu_pg.png);
+    display: grid;
+    grid-template-columns: 15% 78% 8%;
+
+    grid-template-rows: 12% auto auto;
+    grid-template-areas:
+      "title title title"
+      "score board timebar"
+      "footer footer footer";
+    justify-content: center;
+    align-items: center;
+    
+    #title{
+        grid-area: title;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        position: relative;
+        
+        h1{
+            position: absolute;
+            top :20px;
+        }
+        button{
+            position: absolute;
+            width: 120px;
+            top: 40px;
+            height: 50px;
+            left: 70px ;
+            right: 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            border: 2px solid transparent; /* Đường viền trong suốt ban đầu */
+            background: linear-gradient(to right, #4CAF50, #2196F3); /* Gradient cho nền */
+            color: white; /* Màu chữ */
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover{
+            
+           border-color: #4CAF50;
+           background: linear-gradient(to right, #2196F3, #4CAF50); 
+           -webkit-background-clip: text; 
+           color: transparent;
+        }
+        #infor_btn{
+            position: absolute;
+            width: 50px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            top: 42px;
+            height: 50px;
+            left: 1085px;
+            font-size: 30px;
+            border-radius: 50%;
+            border: 5px solid #FDCB46;
+            background: #FDCB46;
+            filter: contrast(120%);
+            color: white;
+            
+        }
+        #description{
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            opacity: 0.8;
+            width: 300px;
+            height: 300px;
+            top: 70px;
+            right:145px;
+            z-index: 4;
+            display: none;
+            border-radius: 50px 10px ;
+            #description_text{
+                font-family: 'Dancing Script', cursive;
+                font-size: 24px;
+                color: white;
+                width: 80%;
+                margin-left: 10%;
+                height: 80%;
+               margin-top: 10%;
+
+            }
+        }
+    }
+    
+    #timebar{
+       right: 15px;
+        width: 22px;
+        bottom: 117px;
+        position: absolute;
+        margin-right: 80px;
+       background-image: linear-gradient(to bottom, #2AFADF , #2572a6 );
+        border-radius: 10px;
+        background-repeat: no-repeat;
+    }
+    #score{
+      
+        height: 440px;
+        grid-area: score;
+        display: grid;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+        background-image: linear-gradient(to right, #4CAF50, #2196F3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        position: absolute;
+        left: 60px;
+        
+        label{
+            font-size: 50px;
+            font-family: fontpikachu, fontgoblin, Impact;
+            
+        }
+    }
+
+    #board{
+     grid-area: board;
+    margin: auto 0px;
+    position: relative;
+    height: 550px;
+    background-color: transparent;
+    
+    img{
+        position: absolute;
+        display: grid;
+        width: 53px;
+        height: 53px;
+        cursor: pointer;
+        opacity: 2;
+        background-size: cover;
+        
+    }
+    
+    .poke_card{
+        border: 1px solid aliceblue !important;
+        background-image:  radial-gradient(circle, #1a9f96, #ffff); 
+     
+    }
+    .border_red{
+        border: 2px solid red !important;
+    }
+    .hiddentag{
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        width: 53px;
+        height: 53px;
+        display: none;
+    }
+}
+    #footer{
+        grid-area: footer;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        align-items: center;
+        justify-content: center;
+        column-gap: 10%;
+        font-size: 20px;
+        margin-bottom: 20px;
+        button,span{
+            border-radius: 10px;
+            background-color: transparent;
+            padding: 10px;
+           margin-bottom: 10px;
+           font-size: 20px;
+           border-color: #4CAF50;
+           background: linear-gradient(to right, #2196F3, #4CAF50); 
+           -webkit-background-clip: text; 
+           color: transparent;
+         
+        }
+        span{
+            border:1px solid  #4CAF50;
+            border: 2px solid transparent; /* Đường viền trong suốt ban đầu */
+            background: linear-gradient(to right, #4CAF50, #2196F3); /* Gradient cho nền */
+            color: white; /* Màu chữ */
+        }
+        button:hover{
+            border: 2px solid transparent; /* Đường viền trong suốt ban đầu */
+            background: linear-gradient(to right, #4CAF50, #2196F3); /* Gradient cho nền */
+            color: white; /* Màu chữ */
+            cursor: pointer;
+            transition: border-color 0.3s, color 0.3s;
+       
+           
+            
+        }
+    }
+}
+#menu{
+    width: 100%;
+    height: 100%;
+    top :0px;
+    left: 0px;
+    // background-color: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to right, #2196F3, #4CAF50); 
+    display: grid;
+    grid-template-rows: 40% 50%;
+   
+    justify-content: center;
+    position: absolute;
+    z-index: 4;
+        #inner_menu {
+            height: 20%;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #2AFADF;
+
+            button,select{
+                padding: 10px 17px;
+                font-size: 30px;
+                margin: 10px 0px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            select{
+                color: #2AFADF;
+                border: none;
+                background-color: black;
+            }
+            
+        }
+        h1{
+            align-self: self-start;
+            padding: 20px;
+            font-size: 50px;
+            margin-top: 50%;
+        }
+      
+}
+#wrapper{
+    display: none;
+    position: absolute;
+    top:0px;
+   
+    width: 100%;
+    height: 100%;
+    
+    background-color:transparent;
+    z-index: 5;
+    
+    div{
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+       div{
+        padding: 20px;
+        
+        font-size: 70px;
+        background-image: linear-gradient(to right, #ffcc00, #ff0000);
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+       }
+       span{
+        font-size: 30px;
+        padding: 20px;color: rgb(26, 94, 154);
+
+       }
+    }
+
+   
+}
+
