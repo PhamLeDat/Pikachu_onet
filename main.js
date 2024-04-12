@@ -87,7 +87,7 @@
                 board.append(hiddentag);
             } else if(selectedLevel=='Màn 2'&& id % 12 ==0){
                 var tag = $('<img></img>');
-                tag.attr('src', '/img/wall.png');
+                tag.attr('src', 'img/wall.png');
                 tag.addClass('wall');
                 tag.addClass('poke_card');
                 tag.attr('id', id);
@@ -274,8 +274,8 @@
                     
                         element1.addClass('img_icon');
                         element2.addClass('img_icon');
-                        element1.attr('src', '/img/board-img/' + i + '.png');
-                        element2.attr('src', '/img/board-img/' + i + '.png');
+                        element1.attr('src', 'img/board-img/' + i + '.png');
+                        element2.attr('src', 'img/board-img/' + i + '.png');
                         count+=2;
                         // nếu đủ số lượng break
                         if (count >=length ) {
@@ -349,7 +349,7 @@
         }).attr('id', 'div_img_infor');
         var  left_size = 40;
         $.each(imgs_level5, function(index,imgsrc) {
-            imgsrc = '/img/board-img/' + imgsrc + '.png'; 
+            imgsrc = 'img/board-img/' + imgsrc + '.png'; 
 
             var img = $('<img>').attr('src', imgsrc).css({
                 position: 'absolute',
@@ -371,7 +371,7 @@
     // Xử lý logic trong mô tả Màn 5
    function increateTimeBar(card) {
     for (var i = 0; i <imgs_level5.length; i++) {
-        var imgsrc = '/img/board-img/' + imgs_level5[i] + '.png';
+        var imgsrc = 'img/board-img/' + imgs_level5[i] + '.png';
         // xử lý khi nối thành công 
     
         if(card.attr('src')==imgsrc){
@@ -400,7 +400,7 @@
             children.each(function() {
                 var clone = $(this).clone();
                 clone.addClass('clone_img');
-                clone.attr('src','/img/icon_pika.png');
+                clone.attr('src','img/icon_pika.png');
                 clone.appendTo(board);
             });
         }
@@ -444,8 +444,8 @@
         element2.addClass('poke_card');
         // gắn hình ảnh ngẫu nhiên cho 2 phần tử
         img_index =  Math.floor(Math.random() * 40) ;
-        element1.attr('src', '/img/board-img/' +img_index + '.png');
-        element2.attr('src', '/img/board-img/' + img_index + '.png');
+        element1.attr('src', 'img/board-img/' +img_index + '.png');
+        element2.attr('src', 'img/board-img/' + img_index + '.png');
 
         // hiển thị lên board
         element1.css('display','block');
@@ -1382,7 +1382,7 @@
             line.forEach(function(cell) {
                 var  intialSrc= cell.attr('src');
                 cell.css('display', 'block');
-                cell.attr('src', '/img/line (2).png');
+                cell.attr('src', 'img/line (2).png');
                  cell.css('object-fit', 'contain');
                  cell.css('background-image', 'none');
                 setTimeout(function() {
@@ -1507,7 +1507,7 @@
         $('#icon_pica').remove();
         $('<img>', {
             id: 'icon_pica',
-            src: '/img/icon_pika.png' 
+            src: 'img/icon_pika.png' 
         }).appendTo('#container').css({
             'position': 'absolute',
             'height': '18%',
