@@ -1,4 +1,6 @@
-    var pikachu_win = new Audio('audio/Pikachu_win.wav');
+//    21130022_PhamLeDat_0369092823_DH21DTA
+  
+   var pikachu_win = new Audio('audio/Pikachu_win.wav');
     var pikachu_error = new Audio('audio/Pikachu_error.wav');
     var pikachu_secondPick = new Audio('audio/Pikachu_enter.wav');
     var pikachu_firstPick = new Audio('audio/Pikachu_move.wav');
@@ -50,7 +52,7 @@
                   });
                   btn_audio.empty();
                   btn_audio.append(icon);
-                btn_audio.append(' Tắt âm thanh');
+                btn_audio.append(' Bật âm thanh');
                
             }else{
               
@@ -59,7 +61,7 @@
                     'class': 'fa-solid fa-volume-high'
                   });
                   btn_audio.append(icon);
-                btn_audio.append(' Bật âm thanh');
+                btn_audio.append(' Tắt âm thanh');
                
             }
        
@@ -85,7 +87,7 @@
                 hiddentag.css('border', 'none');
                 hiddentag.addClass('hiddentag');
                 board.append(hiddentag);
-            } else if(selectedLevel=='Màn 2'&& id % 12 ==0){
+            } else if(selectedLevel=='Màn 2'&& id % 13 ==0){
                 var tag = $('<img></img>');
                 tag.attr('src', 'img/wall.png');
                 tag.addClass('wall');
@@ -206,13 +208,13 @@
         description_text.text(myDescription);
         switch(selectedLevel) {
             case "Màn 1":
-                description_text.text('Trò chơi nguyên bản, nối cặp ảnh tới khi hết ảnh trong bàn cờ sẽ chiến thắng.');
+                description_text.text('Trò chơi nguyên bản, nối các mảnh ghép tới khi hết ô cờ trong bàn cờ sẽ chiến thắng.');
                 break;
             case "Màn 2":
                 description_text.text('Bàn cờ sẽ được gắn 10 ô tường.');
                 break;
             case "Màn 3":
-                description_text.text('Mỗi 10s bàn cờ sẽ tự random lại.');
+                description_text.text('Mỗi 10s bàn cờ sẽ tự thay đổi hình ảnh các ô cờ.');
                 break;
             case "Màn 4":
                 description_text.text('Mỗi 12s khóa ngẫu nhiên các ảnh trong vòng 5s (số lượng ảnh bị khóa từ 10 trở xuống).');
@@ -255,7 +257,7 @@
     var length = myBoard.children('.poke_card').length;
     // chạy vòng while cho đến khi lấy đủ số lượng phần tử trong mảng
         while (count < length) {
-            for (var i = 1; i <=40; i++) {
+            for (var i = 1; i <=30; i++) {
                 // lấy 2 vị trí ngẫu nhiên từ trong board
                 var firstIndex = Math.floor(Math.random() * length);
                 var secondIndex = Math.floor(Math.random() * length);
@@ -266,8 +268,8 @@
                 var isSameElement = firstIndex === secondIndex;
 
                 
-                // nếu cả 2 đều chưa có classname poke_card và 2 element không có index bằng nhau thì thêm hình cho 2 tag đó
-                // và gắn classname cho nó là poke_card để đánh dấu là đã thêm hình
+                // nếu cả 2 đều chưa có tên class là poke_card và 2 phần tử không có index bằng nhau thì thêm hình cho 2 tag đó
+                // và gắn tên class cho nó là poke_card để đánh dấu là đã thêm hình
                 // đồng thời tăng count thêm 2, 
                 if (!element1.hasClass('wall') && !element2.hasClass('wall') ) {
                     if (!element1.hasClass('img_icon') && !element2.hasClass('img_icon') && !isSameElement ) {
@@ -339,7 +341,7 @@
     function appendImgToDes(){
         imgs_level5.splice(0, 3);
         for (var i = 0; i < 3; i++) {
-            var index_img_lv5 = Math.floor(Math.random() * 40);
+            var index_img_lv5 = Math.floor(Math.random() * 30);
             imgs_level5.push(index_img_lv5);
         }
         
@@ -348,6 +350,7 @@
             display: 'flex'
         }).attr('id', 'div_img_infor');
         var  left_size = 40;
+        // tạo hình ảnh cho mỗi img
         $.each(imgs_level5, function(index,imgsrc) {
             imgsrc = 'img/board-img/' + imgsrc + '.png'; 
 
@@ -443,7 +446,7 @@
         element1.addClass('poke_card');
         element2.addClass('poke_card');
         // gắn hình ảnh ngẫu nhiên cho 2 phần tử
-        img_index =  Math.floor(Math.random() * 40) ;
+        img_index =  Math.floor(Math.random() * 30) ;
         element1.attr('src', 'img/board-img/' +img_index + '.png');
         element2.attr('src', 'img/board-img/' + img_index + '.png');
 
@@ -1416,7 +1419,7 @@
                 if (initialHeight <= 0) {
                     // xử lí để chơi lại
                     clearInterval(interval);
-                   replay();
+                  playgame();
                 }
             }, intervalTime);
         }
@@ -1480,7 +1483,7 @@
         if(selectedLevel == 'Màn 5'){
             appendImgToDes();
         }
-      
+        isLightingShow = false;
        
       
     }
@@ -1565,12 +1568,17 @@
               
             }
         }
-        
-       
         alert('hết các cặp có thể nối');
         refreshBoardForLevel3();
         hasConnect();
        
+     }
+     // giới thiệu thông tin
+     function showAboutme(){
+        $('#aboutme_infor').css('display', 'grid');
+     }
+     function hiddenAboutme(){
+        $('#aboutme_infor').css('display', 'none');
      }
         $(document).ready(function() {
        

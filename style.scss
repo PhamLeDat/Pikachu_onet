@@ -8,7 +8,7 @@ html{
     height: 100%;
     display: block;
    text-align: center;
-    
+   font-family: 'Courier New', Courier, monospace;
 }
 body{
     position: relative;
@@ -263,6 +263,30 @@ h1{
             padding: 20px;
             font-size: 50px;
             margin-top: 50%;
+        }
+        #aboutme_infor{
+            background-color: darkcyan;
+            position: absolute;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            width: 600px;
+            height: 350px;  
+            border: 1px solid aliceblue;
+            color: white;
+           
+            display: none;
+            align-items: center;
+            border-radius: 10px;
+            top :50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            i{
+                position: absolute;
+                top: 2%;
+                right: 2%;
+                font-size: 30px;
+                cursor: pointer;
+                padding: 10px;
+            }
         }
       
 }
